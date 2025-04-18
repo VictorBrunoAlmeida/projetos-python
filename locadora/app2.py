@@ -1,4 +1,5 @@
 import os
+import locale
 
 carros = [
     {"marca": "chevrolet", "modelo": "Tracker", "valor_diario": 120},
@@ -16,6 +17,10 @@ carros_alugados = []
 print("="*40)
 print("seja bem vindo a locadora de carros")
 print("="*40)
+
+def formatar_moeda(valor):
+    locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')  # Define o locale para o Brasil
+    return locale.currency(valor, grouping=True, symbol=True)  # Formata o valor como moeda brasileira
 
 #mostrar lista de carros
 def mostrar_lista_carros(lista_de_carros):
@@ -48,10 +53,11 @@ while True:
             if 0 <= cod_carro < len(carros):
                 dias = int(input("por quantos dias você deseja alugar o carro?"))
                 valor_aluguel = carros[cod_carro]["valor_diario"] * dias
+                valor_aluguel_formatted = formatar_moeda(valor_aluguel)  # Formata o valor como moeda brasileira
                 os.system("cls")
         
                 print(f"você escolheu o carro {carros[cod_carro]['marca']}{carros[cod_carro]['modelo']} por {dias} dias")
-                print(f"o aluguel totalizaria R${valor_aluguel} reais. Gostaria de alugar?")
+                print(f"o aluguel totalizaria {valor_aluguel_formatted} reais. Gostaria de alugar?")
         
                 confirma = input("(sim) | (não) ").strip().lower()
                 
@@ -104,9 +110,3 @@ while True:
       print("obrigado pro utilizar o nosso sistema")
       break  
         
-  
-    
-        
-    
-    
-    

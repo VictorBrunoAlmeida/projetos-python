@@ -43,7 +43,7 @@ def get_user_move(board):
         #verifica se a posição está vazia
         
         if board[linha][coluna] != " ":
-            print("posição já está ocupada! marque uma opção quen ão está ocupada")
+            print("posição já está ocupada! marque uma opção que não está ocupada")
             return get_user_move(board) #retorna a função para uma nova entrada do usuário
         
         #retornar as coordenadas corretas
