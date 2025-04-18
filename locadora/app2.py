@@ -110,9 +110,3 @@ while True:
       print("obrigado pro utilizar o nosso sistema")
       break  
         
-  
-    
-        
-    
-    
-    
